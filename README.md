@@ -1,7 +1,5 @@
-# Studies/Stanford: CS193p (iOS Development w/ Swift)
+## Studies/Stanford: CS193p (iOS Development w/ Swift)
 
-Code from CS193P Course
-=============
 
 Code created following the instructions from Stanford's Paul Hegarty, see the [course at iTunesU] (https://itunes.apple.com/us/course/developing-ios-8-apps-swift/id961180099).
 
