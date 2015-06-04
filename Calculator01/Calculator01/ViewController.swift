@@ -14,6 +14,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var display: UILabel!
   
   var userIsInTheMiddleOfTypingANumber = false
+  var floatDividerWasEntered = false
   
   var brain = CalculatorBrain()
   
@@ -32,7 +33,21 @@ class ViewController: UIViewController {
   @IBAction func appendDigit(sender: UIButton) {
     let digit = sender.currentTitle!
     if userIsInTheMiddleOfTypingANumber {
-      display.text = display.text! + digit
+      
+      if let displayTypedValue = display.text
+      {
+        if digit == "."
+        {
+          if floatDividerWasEntered == false {
+          floatDividerWasEntered = true
+          display.text = displayTypedValue + digit
+          }
+        } else
+        {
+          display.text = displayTypedValue + digit
+        }
+      }
+      
     } else {
       display.text = digit
       userIsInTheMiddleOfTypingANumber = true
@@ -61,6 +76,7 @@ class ViewController: UIViewController {
   
   @IBAction func enter() {
     userIsInTheMiddleOfTypingANumber = false
+    floatDividerWasEntered = false
     if let result = brain.pushOperand(displayValue) {
       displayValue = result
     } else {
