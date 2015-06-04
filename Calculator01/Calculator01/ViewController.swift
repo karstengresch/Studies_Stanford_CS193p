@@ -8,19 +8,53 @@
 
 import UIKit
 
+
+extension String
+{
+  func substring(fromPos start: Int, withLength length: Int) -> String
+  {
+    if length > 0
+    {
+      return self[advance(self.startIndex, start)..<advance(self.startIndex, start+length)]
+    }
+    else
+    {
+      return self[advance(self.startIndex, start+length)..<advance(self.startIndex, start)]
+    }
+  }
+}
+
+
+
+
+
 class ViewController: UIViewController {
   
   
   @IBOutlet weak var display: UILabel!
   
   var userIsInTheMiddleOfTypingANumber = false
-  var floatDividerWasEntered = false
   
   var brain = CalculatorBrain()
   
   var displayValue: Double {
     get {
-      return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+      
+      // println("display text: \(display.text)")
+      var returnValue = 0.0
+      
+      if let displayValue = display.text {
+        var checkValue = displayValue
+        if checkValue == "π" { checkValue = "\(M_PI)"  }
+      //   else if checkValue.rangeOfString("π")
+        
+        
+        returnValue = NSNumberFormatter().numberFromString(checkValue)!.doubleValue
+       }
+
+   
+
+    return returnValue
     }
     
     set {
@@ -36,23 +70,30 @@ class ViewController: UIViewController {
       
       if let displayTypedValue = display.text
       {
-        if digit == "."
-        {
-          if floatDividerWasEntered == false {
-          floatDividerWasEntered = true
-          display.text = displayTypedValue + digit
+        // not so readable, but one-liner. Doesn't cover initial
+        var nonInitialValue = displayTypedValue + ( (digit != ".") ? digit : ( (!(displayTypedValue.rangeOfString(".") != nil) ) ? digit : "") )
+        if nonInitialValue.hasSuffix("π") {
+          if userIsInTheMiddleOfTypingANumber
+          {
+            nonInitialValue = nonInitialValue.substring(fromPos: 0, withLength: count(nonInitialValue) - 2)
+            enter()
+            nonInitialValue = "\(M_PI)"
+            enter()
           }
-        } else
-        {
-          display.text = displayTypedValue + digit
+          else
+          {
+           nonInitialValue = "\(M_PI)"
+          }
         }
+        display.text = nonInitialValue
       }
-      
     } else {
-      display.text = digit
+      var initialValue = digit
+      if initialValue == "." { initialValue = "0." }
+      if initialValue == "π" { initialValue = "\(M_PI)" }
+      display.text = initialValue
       userIsInTheMiddleOfTypingANumber = true
     }
-    
   }
   
   @IBAction func operate(sender: UIButton) {
@@ -68,26 +109,15 @@ class ViewController: UIViewController {
       } else {
         displayValue = 0
       }
-      
     }
-    
   }
-  
   
   @IBAction func enter() {
     userIsInTheMiddleOfTypingANumber = false
-    floatDividerWasEntered = false
     if let result = brain.pushOperand(displayValue) {
       displayValue = result
     } else {
       displayValue = 0
     }
   }
-  
-  
-  
-  
-  
-  
-  
 }
