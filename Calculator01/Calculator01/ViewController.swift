@@ -22,11 +22,14 @@ extension String
       return self[advance(self.startIndex, start+length)..<advance(self.startIndex, start)]
     }
   }
+  
+  var doubleValue: Double {
+    if let number = NSNumberFormatter().numberFromString(self) {
+      return number.doubleValue
+    }
+    return 0
+  }
 }
-
-
-
-
 
 class ViewController: UIViewController {
   
@@ -34,27 +37,21 @@ class ViewController: UIViewController {
   @IBOutlet weak var display: UILabel!
   
   var userIsInTheMiddleOfTypingANumber = false
-  
   var brain = CalculatorBrain()
   
   var displayValue: Double {
     get {
       
-      // println("display text: \(display.text)")
+      println("display text: \(display.text)")
       var returnValue = 0.0
       
       if let displayValue = display.text {
         var checkValue = displayValue
         if checkValue == "π" { checkValue = "\(M_PI)"  }
-      //   else if checkValue.rangeOfString("π")
-        
-        
         returnValue = NSNumberFormatter().numberFromString(checkValue)!.doubleValue
-       }
-
-   
-
-    return returnValue
+      }
+      
+      return returnValue
     }
     
     set {
@@ -73,23 +70,16 @@ class ViewController: UIViewController {
         // not so readable, but one-liner. Doesn't cover initial
         var nonInitialValue = displayTypedValue + ( (digit != ".") ? digit : ( (!(displayTypedValue.rangeOfString(".") != nil) ) ? digit : "") )
         if nonInitialValue.hasSuffix("π") {
-          if userIsInTheMiddleOfTypingANumber
-          {
-            nonInitialValue = nonInitialValue.substring(fromPos: 0, withLength: count(nonInitialValue) - 2)
-            enter()
-            nonInitialValue = "\(M_PI)"
-            enter()
-          }
-          else
-          {
-           nonInitialValue = "\(M_PI)"
-          }
+          nonInitialValue = nonInitialValue.substring(fromPos: 0, withLength: count(nonInitialValue) - 2)
+          enter()
+          userIsInTheMiddleOfTypingANumber = true
+          nonInitialValue = "\(M_PI)"
         }
         display.text = nonInitialValue
       }
     } else {
       var initialValue = digit
-      if initialValue == "." { initialValue = "0." }
+      if initialValue == "." { initialValue = "0.0" }
       if initialValue == "π" { initialValue = "\(M_PI)" }
       display.text = initialValue
       userIsInTheMiddleOfTypingANumber = true
