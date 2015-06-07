@@ -16,9 +16,4 @@ xcuserdata
 DerivedData
 *.xcuserstate
 *.xcbkptlist
-
-Calculator01/.idea/scopes/scope_settings.xml
-
-Calculator01/.idea/workspace.xml
-
-Calculator01/Calculator01.xcodeproj/xcuserdata/karsten.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+*/.idea/*
