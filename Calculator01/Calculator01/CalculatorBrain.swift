@@ -98,4 +98,10 @@ class CalculatorBrain
     return evaluate()
   }
   
+  func reset() {
+    // assumed not needed here: opStack = nil
+    opStack = [Op]()
+    evaluate()
+  }
+  
 }

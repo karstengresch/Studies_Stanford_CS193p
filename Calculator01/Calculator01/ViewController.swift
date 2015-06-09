@@ -101,6 +101,10 @@ class ViewController: UIViewController {
       }
     }
   }
+  @IBAction func reset(sender: UIButton) {
+    brain.reset()
+    displayValue = 0
+  }
   
   @IBAction func enter() {
     userIsInTheMiddleOfTypingANumber = false
