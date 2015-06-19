@@ -36,8 +36,12 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var display: UILabel!
   
+  @IBOutlet weak var historyText: UITextView!
+  
+  
   var userIsInTheMiddleOfTypingANumber = false
   var brain = CalculatorBrain()
+  var history = ""
   
   var displayValue: Double {
     get {
@@ -86,8 +90,11 @@ class ViewController: UIViewController {
     }
   }
   
+
+  
   @IBAction func operate(sender: UIButton) {
     
+    // TODO ugly check
     if userIsInTheMiddleOfTypingANumber
     {
       enter()
@@ -99,6 +106,7 @@ class ViewController: UIViewController {
       } else {
         displayValue = 0
       }
+      addToHistory(operation)
     }
   }
   @IBAction func reset(sender: UIButton) {
@@ -113,5 +121,21 @@ class ViewController: UIViewController {
     } else {
       displayValue = 0
     }
+    addToHistory("\(displayValue)")
   }
+  
+  func addToHistory(input: String)
+  {
+    if(!input.isEmpty)
+    {
+      if (!history.isEmpty) {
+        history += "\n"
+      }
+      history += input
+    }
+    
+    historyText.text = history
+    
+  }
+  
 }
