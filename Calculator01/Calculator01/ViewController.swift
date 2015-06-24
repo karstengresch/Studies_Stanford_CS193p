@@ -91,6 +91,24 @@ class ViewController: UIViewController {
   }
   
 
+  @IBAction func deleteLastInput(sender: UIButton) {
+    if let displayTypedValue = display.text
+    {
+      if (count(displayTypedValue) > 0 && (!(count(displayTypedValue) == 1 && displayTypedValue == "0")))
+      {
+        display.text = dropLast(displayTypedValue)
+        if let changedValue = display.text
+        {
+          
+        if (changedValue.rangeOfString(".") != nil)
+        {
+          display.text = dropLast(changedValue)
+        }
+        }
+      }
+    }
+    
+  }
   
   @IBAction func operate(sender: UIButton) {
     
