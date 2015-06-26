@@ -124,7 +124,7 @@ class ViewController: UIViewController {
       } else {
         displayValue = 0
       }
-      addToHistory(operation)
+      addToHistory(brain.history())
     }
   }
   @IBAction func reset(sender: UIButton) {
@@ -139,7 +139,7 @@ class ViewController: UIViewController {
     } else {
       displayValue = 0
     }
-    addToHistory("\(displayValue)")
+    // addToHistory("\(displayValue)")
   }
   
   func addToHistory(input: String)

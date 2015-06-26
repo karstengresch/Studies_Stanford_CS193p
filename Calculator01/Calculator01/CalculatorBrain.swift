@@ -29,6 +29,8 @@ class CalculatorBrain
         }
       }
     }
+    
+    
   }
   
   private var opStack = [Op]()
@@ -79,9 +81,33 @@ class CalculatorBrain
     
   }
   
+  func history() -> String
+  {
+    var returnValue = ""
+    if opStack.count > 1
+    {
+      var separator = " "
+      var values = [String]()
+      
+      for op in opStack {
+        values.append(op.description)
+      }
+      
+      let joined = separator.join(values)
+      returnValue = "\(joined)"
+    }
+    
+    return returnValue
+  }
+  
   func evaluate() ->Double? {
     let (result, remainder) = evaluate(opStack)
     println("\(opStack) = \(result) with \(remainder) left over")
+    // if 
+    if(remainder.count == 0)
+    {
+      
+    }
     return result
   }
   
@@ -91,6 +117,7 @@ class CalculatorBrain
     return evaluate()
   }
   
+  // TODO return tuple
   func performOperation(symbol: String) -> Double? {
     if let operation = knownOps[symbol] {
       opStack.append(operation)
