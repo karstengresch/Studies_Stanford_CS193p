@@ -127,6 +127,19 @@ class ViewController: UIViewController {
       addToHistory(brain.history())
     }
   }
+  
+  
+  @IBAction func changeAlgebraicSign(sender: UIButton) {
+    if (userIsInTheMiddleOfTypingANumber)
+    {
+      if let changedValue = brain.changeAlgebraicSign(displayValue)
+      {
+        displayValue = changedValue
+      }
+    }
+  }
+  
+  
   @IBAction func reset(sender: UIButton) {
     brain.reset()
     displayValue = 0
