@@ -71,14 +71,33 @@ class ViewController: UIViewController {
       
       if let displayTypedValue = display.text
       {
-        // not so readable, but one-liner. Doesn't cover initial
-        var nonInitialValue = displayTypedValue + ( (digit != ".") ? digit : ( (!(displayTypedValue.rangeOfString(".") != nil) ) ? digit : "") )
+        // not readable, but one-liner (forgive me, Uncle Bob). Doesn't cover initial
+//         var nonInitialValue = displayTypedValue + ( (digit != ".") ? digit : ( ( !((displayTypedValue.rangeOfString(".") != nil) || (digit.rangeOfString("±") != nil) )) ? digit : "" ) )
+        var nonInitialValue = displayTypedValue
+          // + ( (digit != ".") ? digit : ( ( !((displayTypedValue.rangeOfString(".") != nil) || (digit.rangeOfString("±") != nil) )) ? digit : "" ) )
+        if digit.rangeOfString("±") != nil
+        {
+          if let changedValue = changeAlgebraicSign(nonInitialValue.doubleValue)
+          {
+            nonInitialValue = "\(changedValue)"
+          }
+        } else if digit != "." || displayTypedValue.rangeOfString(".") != nil
+        {
+           nonInitialValue += digit
+        }
+        
+        
+        
+        
         if nonInitialValue.hasSuffix("π") {
           nonInitialValue = nonInitialValue.substring(fromPos: 0, withLength: count(nonInitialValue) - 2)
           enter()
           userIsInTheMiddleOfTypingANumber = true
           nonInitialValue = "\(M_PI)"
         }
+        
+
+        
         display.text = nonInitialValue
       }
     } else {
@@ -129,20 +148,22 @@ class ViewController: UIViewController {
   }
   
   
-  @IBAction func changeAlgebraicSign(sender: UIButton) {
-    if (userIsInTheMiddleOfTypingANumber)
-    {
+  func changeAlgebraicSign(displayValue: Double)  -> Double? {
+    var signChangedValue: Double?
+
       if let changedValue = brain.changeAlgebraicSign(displayValue)
       {
-        displayValue = changedValue
+        signChangedValue = changedValue
       }
-    }
+  
+  return signChangedValue
   }
   
   
   @IBAction func reset(sender: UIButton) {
     brain.reset()
     displayValue = 0
+    addToHistory("C")
   }
   
   @IBAction func enter() {
