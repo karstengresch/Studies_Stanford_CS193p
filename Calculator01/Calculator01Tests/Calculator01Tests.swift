@@ -2,7 +2,7 @@
 //  Calculator01Tests.swift
 //  Calculator01Tests
 //
-//  Created by Karsten Gresch on 27.05.15.
+//  Created by Karsten Gresch on 16.07.15.
 //  Copyright (c) 2015 Closure One. All rights reserved.
 //
 
@@ -24,6 +24,8 @@ class Calculator01Tests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
+        var brain = CalculatorBrain()
+      
     }
     
     func testPerformanceExample() {

@@ -34,6 +34,20 @@
                ReferencedContainer = "container:Calculator01.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3DAC82A51B5859CE0040A84D"
+               BuildableName = "Calculator01 Tests.xctest"
+               BlueprintName = "Calculator01 Tests"
+               ReferencedContainer = "container:Calculator01.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -51,6 +65,21 @@
                BlueprintName = "Calculator01Tests"
                ReferencedContainer = "container:Calculator01.xcodeproj">
             </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3DAC82A51B5859CE0040A84D"
+               BuildableName = "Calculator01 Tests.xctest"
+               BlueprintName = "Calculator01 Tests"
+               ReferencedContainer = "container:Calculator01.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "Calculator01Tests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
