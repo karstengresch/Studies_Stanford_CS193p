@@ -17,3 +17,5 @@ DerivedData
 *.xcuserstate
 *.xcbkptlist
 */.idea/*
+Calculator01/Calculator01.xcodeproj/project.pbxproj
+Calculator01/Calculator01.xcodeproj/xcuserdata/karsten.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist

@@ -25,6 +25,16 @@ class Calculator01Tests: XCTestCase {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
         var brain = CalculatorBrain()
+        brain.pushOperand(1.0)
+        brain.pushOperand(100.0)
+        if let sum = brain.performOperation("+")
+        {
+            assert(sum == 101.0, "Expected result was 101.0")
+        }
+        else {
+          assert(false, "Expected result was not 101.0")
+      }
+      
       
     }
     
