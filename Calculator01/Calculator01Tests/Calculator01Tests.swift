@@ -34,6 +34,16 @@ class Calculator01Tests: XCTestCase {
         else {
           assert(false, "Expected result was not 101.0")
       }
+      brain.reset()
+      
+
+      if let signChangedResult = brain.changeAlgebraicSign(100.0) {
+        assert(signChangedResult == -100.0, "Result should be -100.0")
+      } else
+      {
+        assert(false, "Result was not -100.0")
+      }
+      
       
       
     }
