@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jz-np-VaA">
-                                <rect key="frame" x="472" y="28" width="128" height="60"/>
+                                <rect key="frame" x="472" y="28" width="112" height="60"/>
                                 <color key="backgroundColor" red="1" green="0.86224641170000005" blue="0.078902955050000001" alpha="0.53000000000000003" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="0.62" colorSpace="calibratedRGB"/>
@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCi-NX-Mc7">
-                                <rect key="frame" x="98" y="28" width="340" height="60"/>
+                                <rect key="frame" x="84" y="28" width="354" height="60"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -262,7 +262,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m30-zl-VVC">
-                                <rect key="frame" x="30" y="28" width="60" height="60"/>
+                                <rect key="frame" x="16" y="28" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.99607843137254903" green="0.91764705882352937" blue="0.49019607843137253" alpha="0.73999999999999999" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="zhn-EV-wdL"/>
@@ -295,8 +295,10 @@ Unicode: U+00B1, UTF-8: C2 B1</string>
                             <constraint firstItem="LCi-NX-Mc7" firstAttribute="height" secondItem="P76-ZO-xow" secondAttribute="height" id="5DS-c5-AcH"/>
                             <constraint firstItem="8Jz-np-VaA" firstAttribute="height" secondItem="LCi-NX-Mc7" secondAttribute="height" id="5eV-jn-ONS"/>
                             <constraint firstItem="hBE-mt-V66" firstAttribute="width" secondItem="Yzw-Z9-UyI" secondAttribute="width" id="6ll-VO-pW1"/>
+                            <constraint firstItem="BH5-Dg-wqX" firstAttribute="leading" secondItem="m30-zl-VVC" secondAttribute="leading" id="6qd-eW-aHS"/>
                             <constraint firstItem="BH5-Dg-wqX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7Kn-nh-apz"/>
                             <constraint firstItem="5I0-KP-Uhh" firstAttribute="leading" secondItem="wmC-GO-bof" secondAttribute="trailing" constant="8" id="8Br-Yg-i9g"/>
+                            <constraint firstItem="BH5-Dg-wqX" firstAttribute="trailing" secondItem="8Jz-np-VaA" secondAttribute="trailing" id="8Xp-lm-6dj"/>
                             <constraint firstItem="LCi-NX-Mc7" firstAttribute="leading" secondItem="m30-zl-VVC" secondAttribute="trailing" constant="8" id="8co-Sp-wjn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8Jz-np-VaA" secondAttribute="trailing" constant="-16" id="8dd-tF-IBa"/>
                             <constraint firstItem="hBE-mt-V66" firstAttribute="height" secondItem="94O-a3-Gvu" secondAttribute="height" id="8wg-Ze-6yC"/>
@@ -365,6 +367,7 @@ Unicode: U+00B1, UTF-8: C2 B1</string>
                             <constraint firstItem="hBE-mt-V66" firstAttribute="height" secondItem="qGK-Io-ssc" secondAttribute="height" id="jkm-WS-4Gx"/>
                             <constraint firstItem="m30-zl-VVC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="14" id="k7h-ve-gQ3"/>
                             <constraint firstItem="qGK-Io-ssc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="kCl-Rf-a7g"/>
+                            <constraint firstItem="BH5-Dg-wqX" firstAttribute="leading" secondItem="m30-zl-VVC" secondAttribute="leading" id="lSf-Wa-sYT"/>
                             <constraint firstItem="1dO-Ke-ScH" firstAttribute="top" secondItem="kfE-Eq-XTV" secondAttribute="bottom" constant="8" id="nGZ-g8-AxB"/>
                             <constraint firstItem="kfE-Eq-XTV" firstAttribute="leading" secondItem="Tow-J8-tWL" secondAttribute="trailing" constant="8" id="noj-VP-H59"/>
                             <constraint firstItem="hBE-mt-V66" firstAttribute="height" secondItem="wmC-GO-bof" secondAttribute="height" id="nzd-DW-iba"/>
@@ -395,12 +398,15 @@ Unicode: U+00B1, UTF-8: C2 B1</string>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="k7h-ve-gQ3"/>
                                 <exclude reference="q22-Kf-cBV"/>
                                 <exclude reference="xyG-IE-Hb7"/>
                                 <exclude reference="288-cu-dz4"/>
                                 <exclude reference="ApO-YF-2TB"/>
                                 <exclude reference="wq9-ef-b1j"/>
                                 <exclude reference="3Me-DF-Xa5"/>
+                                <exclude reference="8dd-tF-IBa"/>
+                                <exclude reference="6qd-eW-aHS"/>
                             </mask>
                         </variation>
                     </view>
