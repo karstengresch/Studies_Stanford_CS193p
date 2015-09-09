@@ -187,7 +187,7 @@ class ViewController: UIViewController {
     }
     
     historyText.text = history
-    
+    // Test from Working Copy
   }
   
 }
