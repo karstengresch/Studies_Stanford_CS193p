@@ -1,5 +1,6 @@
 ## Studies/Stanford: CS193p (iOS Development w/ Swift)
 
+* Abandoned - waiting for a Swift 2.0/iOS 9 version *
 
 Code created following the instructions from Stanford's Paul Hegarty, see the [course at iTunesU] (https://itunes.apple.com/us/course/developing-ios-8-apps-swift/id961180099).
 
